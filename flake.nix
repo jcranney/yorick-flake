@@ -12,7 +12,7 @@
         packages = rec {
           spydr = wrappers.lib.wrapPackage rec {
             inherit pkgs;
-            exePath = "${package}/bin/spydr";
+            exePath = "${package}/bin/_spydr";
             package = yorick-nowrap;
             env = {
               GDK_SCALE = "1";
@@ -22,13 +22,13 @@
           };
           yao = wrappers.lib.wrapPackage rec {
             inherit pkgs;
-            exePath = "${package}/bin/yao";
+            exePath = "${package}/bin/_yao";
             package = yorick-nowrap;
             runtimeInputs = [ pkgs.rlwrap package ];
           };
           yorick = wrappers.lib.wrapPackage rec {
             inherit pkgs;
-            exePath = "${package}/bin/yorick";
+            exePath = "${package}/bin/_yorick";
             package = yorick-nowrap;
             runtimeInputs = [ pkgs.rlwrap package ];
           };
@@ -59,6 +59,9 @@
               cd yp-svipc/yorick
               $out/bin/yorick -batch make.i
               make install
+              mv $out/bin/yorick $out/bin/_yorick
+              mv $out/bin/yao $out/bin/_yao
+              mv $out/bin/spydr $out/bin/_spydr
             '';
             installPhase = ''
             '';
