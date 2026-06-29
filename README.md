@@ -13,10 +13,15 @@ To add these packages to your Nix devShell or NixOS configuration (using flakes)
 ```nix
 {
   inputs = {
-    yorick-flake.url = "github.com:jcranney/yorick-flake";
-    flake-utils.url = "github.com:numtide/flake-utils";
+    yorick-flake = {
+      url = "git+https://github.com/jcranney/yorick-flake";
+      # funny syntax to allow git submodules: see https://github.com/nixos/nix/issues/13571
+    };
+    flake-utils = {
+      url = "github:numtide/flake-utils";
+    };
   };
-  outputs = { nixpkgs, flake-utils, yorick-flake }: 
+  outputs = { self, nixpkgs, flake-utils, yorick-flake }: 
     flake-utils.lib.eachDefaultSystem (system:
       let pkgs = nixpkgs.legacyPackages.${system}; in
       {
@@ -28,4 +33,5 @@ To add these packages to your Nix devShell or NixOS configuration (using flakes)
       }
     );
 }
+
 ```
