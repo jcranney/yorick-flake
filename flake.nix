@@ -2,7 +2,6 @@
   description = "Yorick Adaptive Optics (YAO) tool packaged for Nix.";
 
   inputs.flake-utils.url = "github:numtide/flake-utils";
-  inputs.self.submodules = true;
   inputs.wrappers.url = "github:lassulus/wrappers";
 
   outputs = { self, nixpkgs, flake-utils, wrappers }:
