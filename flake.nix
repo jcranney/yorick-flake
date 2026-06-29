@@ -3,6 +3,7 @@
 
   inputs.flake-utils.url = "github:numtide/flake-utils";
   inputs.wrappers.url = "github:lassulus/wrappers";
+  inputs.self.submodules = true;
 
   outputs = { self, nixpkgs, flake-utils, wrappers }:
     flake-utils.lib.eachDefaultSystem (system:
