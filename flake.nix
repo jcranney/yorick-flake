@@ -15,8 +15,8 @@
             exePath = "${package}/bin/spydr";
             package = yorick-nowrap;
             env = {
-              GDK_SCALE = 1;
-              GDK_BACKEND = x11;
+              GDK_SCALE = "1";
+              GDK_BACKEND = "x11";
             };
             runtimeInputs = [ pkgs.rlwrap package ];
           };
