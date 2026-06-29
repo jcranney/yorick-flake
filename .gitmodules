@@ -1,0 +1,21 @@
+[submodule "yorick-spydr"]
+	path = yorick-spydr
+	url = git@github.com:frigaut/yorick-spydr
+[submodule "yao"]
+	path = yao
+	url = git@github.com:frigaut/yao
+[submodule "yp-svipc"]
+	path = yp-svipc
+	url = git@github.com:mdcb/yp-svipc.git
+[submodule "yorick-soy"]
+	path = yorick-soy
+	url = git@github.com:frigaut/yorick-soy
+[submodule "yorick-imutil"]
+	path = yorick-imutil
+	url = git@github.com:frigaut/yorick-imutil
+[submodule "yorick-yutils"]
+	path = yorick-yutils
+	url = git@github.com:frigaut/yorick-yutils
+[submodule "yorick"]
+	path = yorick
+	url = git@github.com:llnl/yorick
