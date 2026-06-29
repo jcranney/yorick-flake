@@ -30,12 +30,9 @@
           };
           yorick = wrappers.lib.wrapPackage rec {
             inherit pkgs;
-            exePath = "${package}/bin/_yorick";
+            exePath = "${pkgs.rlwrap}/bin/rlwrap ${package}/bin/_yorick";
             binName = "yorick";
             package = yorick-nowrap;
-            env = {
-              THISBETTERNOTWORK = "1";
-            };
             runtimeInputs = [ pkgs.rlwrap ];
           };
           yorick-nowrap = pkgs.stdenv.mkDerivation {
