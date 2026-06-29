@@ -46,29 +46,36 @@
             src = ./.;
             hardeningDisable = [ "fortify" ];
             buildPhase = ''
+              HERE=$(pwd)
+
+              echo "making yorick ..."
               cd yorick
               make install
               cp -r relocate $out
-              cd ..
+              cd $HERE
+
               export GDK_SCALE=1
               export GDK_BACKEND=x11
               for p in yorick-yutils yorick-imutil yorick-soy yorick-spydr yao
               do
+                echo "making $p ..."
                 cd $p
                 $out/bin/yorick -batch make.i
                 make install
-                cd ..
+                cd $HERE
               done
 
+              echo "making yp-svipc ..."
               cd yp-svipc/yorick
               $out/bin/yorick -batch make.i
               make install
-              cd ..
+              cd $HERE
               
+              echo "making VMLMB ..."
               cd VMLMB/yorick
-              ./configure
+              ./configure --yorick=$out/bin/yorick
               make install
-              cd ..
+              cd $HERE
               
               mv $out/bin/yorick $out/bin/_yorick
               mv $out/bin/yao $out/bin/_yao
