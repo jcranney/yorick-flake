@@ -15,7 +15,6 @@ To add these packages to your Nix devShell or NixOS configuration (using flakes)
   inputs = {
     yorick-flake = {
       url = "git+https://github.com/jcranney/yorick-flake";
-      # funny syntax to allow git submodules: see https://github.com/nixos/nix/issues/13571
     };
     flake-utils = {
       url = "github:numtide/flake-utils";
@@ -27,7 +26,7 @@ To add these packages to your Nix devShell or NixOS configuration (using flakes)
       {
         devShells.default = pkgs.mkShell {
           packages = with yorick-flake.packages.${system}; [ 
-            yorick yao spydr
+            spydr yao yorick
           ];
         };
       }
