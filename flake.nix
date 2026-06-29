@@ -26,14 +26,14 @@
             exePath = "${package}/bin/_yao";
             package = yorick-nowrap;
             binName = "yao";
-            runtimeInputs = [ pkgs.rlwrap package yorick ];
+            runtimeInputs = [ pkgs.rlwrap yorick ];
           };
           yorick = wrappers.lib.wrapPackage rec {
             inherit pkgs;
             exePath = "${package}/bin/_yorick";
             binName = "yorick";
             package = yorick-nowrap;
-            runtimeInputs = [ pkgs.rlwrap package ];
+            runtimeInputs = [ pkgs.rlwrap ];
           };
           yorick-nowrap = pkgs.stdenv.mkDerivation {
             description = "YAO, and all Yorick plugins required for the full YAO experience. ";
