@@ -14,21 +14,24 @@
             inherit pkgs;
             exePath = "${package}/bin/_spydr";
             package = yorick-nowrap;
+            binName = "spydr";
             env = {
               GDK_SCALE = "1";
               GDK_BACKEND = "x11";
             };
-            runtimeInputs = [ pkgs.rlwrap package ];
+            runtimeInputs = [ pkgs.rlwrap yorick ];
           };
           yao = wrappers.lib.wrapPackage rec {
             inherit pkgs;
             exePath = "${package}/bin/_yao";
             package = yorick-nowrap;
-            runtimeInputs = [ pkgs.rlwrap package ];
+            binName = "yao";
+            runtimeInputs = [ pkgs.rlwrap package yorick ];
           };
           yorick = wrappers.lib.wrapPackage rec {
             inherit pkgs;
             exePath = "${package}/bin/_yorick";
+            binName = "yorick";
             package = yorick-nowrap;
             runtimeInputs = [ pkgs.rlwrap package ];
           };
