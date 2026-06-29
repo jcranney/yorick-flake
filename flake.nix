@@ -59,9 +59,17 @@
                 make install
                 cd ..
               done
+
               cd yp-svipc/yorick
               $out/bin/yorick -batch make.i
               make install
+              cd ..
+              
+              cd VMLMB/yorick
+              ./configure
+              make install
+              cd ..
+              
               mv $out/bin/yorick $out/bin/_yorick
               mv $out/bin/yao $out/bin/_yao
               mv $out/bin/spydr $out/bin/_spydr

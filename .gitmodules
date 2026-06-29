@@ -19,3 +19,6 @@
 [submodule "yorick"]
 	path = yorick
 	url = git@github.com:llnl/yorick
+[submodule "VMLMB"]
+	path = VMLMB
+	url = git@github.com:emmt/VMLMB.git
