@@ -22,3 +22,6 @@
 [submodule "VMLMB"]
 	path = VMLMB
 	url = git@github.com:emmt/VMLMB.git
+[submodule "yor-vops"]
+	path = yor-vops
+	url = git@github.com:emmt/yor-vops.git

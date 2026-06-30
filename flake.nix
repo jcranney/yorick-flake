@@ -41,6 +41,7 @@
               libx11 fftw fftwFloat
               gtk3 gobject-introspection wrapGAppsHook3
               (python3.withPackages (p: with p; [ pygobject3 ]))
+              clang
             ];
             name = "yorick-nowrap";
             src = ./.;
@@ -76,7 +77,13 @@
               ./configure --yorick=$out/bin/yorick
               make install
               cd $HERE
-              
+
+              echo "making yor-vops ..."
+              cd yor-vops
+              ./configure yorick=$out/bin/yorick
+              make install
+              cd $HERE
+
               mv $out/bin/yorick $out/bin/_yorick
               mv $out/bin/yao $out/bin/_yao
               mv $out/bin/spydr $out/bin/_spydr
